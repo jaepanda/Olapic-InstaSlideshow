@@ -1,19 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title>OlaShow</title>
 
-	<!-- JS -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="script.js"></script>
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="packery.js"></script>
+    <script src="jquery.cycle2.min.js"></script>
+    <script>
+    $(document).ready(function(e){
+        var container = document.querySelector('#container');
+        var myPackery = new Packery( container, {
 
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="style.css">
+        });
+
+        var imgs = 
+        {
+            "photos": [
+            {
+                "id": 1234,
+                "url": "photos/1.jpg"
+            },
+            {
+                "id": 1235,
+                "url": "photos/2.jpg"
+            },
+            {
+                "id": 1236,
+                "url": "photos/3.jpg"
+            },
+            {
+                "id": 1237,
+                "url": "photos/4.jpg"
+            },
+            {
+                "id": 1238,
+                "url": "photos/5.jpg"
+            },
+            {
+                "id": 1239,
+                "url": "photos/6.jpg"
+            },
+            {
+                "id": 1240,
+                "url": "photos/1.jpg"
+            },
+            {
+                "id": 1241,
+                "url": "photos/2.jpg"
+            },
+            {
+                "id": 1242,
+                "url": "photos/3.jpg"
+            }
+            ]
+        };
+
+        $('.item_container').each(function(e){
+            var thisImg = $('<img />',
+                { id: imgs.photos[e].id,
+                src: imgs.photos[e].url})
+            .appendTo($(this));
+        });
+
+        $('button.action').click(function(e){
+            var oldImg = $(".item.slot_1 .item_container img:eq(0)");
+
+            console.log(oldImg.attr('id'));
+
+            var randomPhoto = imgs.photos[Math.floor(Math.random() * 9) + 0];
+
+            while ( oldImg.attr('id') == randomPhoto.id ) {
+                randomPhoto = imgs.photos[Math.floor(Math.random() * 9) + 0];
+            }
+
+            var img = new Image();
+            img.src = randomPhoto.url;
+            img.id = randomPhoto.id;
+            var newImg = $(img).hide();
+            $(".item.slot_1 .item_container").append(img);
+
+            oldImg.stop(true).fadeOut(1000, function() {
+                $(this).appendTo('.bucket');
+            });
+            newImg.fadeIn(1000);
+        });
+
+        // $("ul li:eq(" + Math.floor(Math.random()*4) + ")")
+    });
+    </script> 
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
 </head>
 <body>
 
-<h1>hello world</h1>
+    <button class="action" value="hello"></button
 
+
+    <h2>Slideshow Title</h2>
+    <div id="container" class="js-packery" data-packery-options='{ "itemSelector": ".item" }'>
+        <div class="item slot_1">
+            <div class="item_container small_images">
+                
+            </div>
+        </div>
+        <div class="item slot_2">
+            <div class="item_container small_images">
+                
+            </div>
+        </div>
+        <div class="item slot_3">
+            <div class="item_container large_images">
+
+            </div>
+        </div>
+        <div class="item slot_3">
+            <div class="item_container small_images">
+                
+            </div>
+        </div>
+        <div class="item slot_4">
+            <div class="item_container large_images">
+
+            </div>
+        </div>
+        <div class="item slot_5">
+            <div class="item_container small_images">
+                
+            </div>
+        </div>
+        <div class="item slot_6">
+            <div class="item_container small_images">
+                
+            </div>
+        </div>
+        <div class="item slot_7">
+            <div class="item_container small_images">
+                
+            </div>
+        </div>
+        <div class="item slot_8">
+            <div class="item_container small_images">
+                
+            </div>
+        </div>
+
+    </div>
+    <div id="images">
+    </div>
+
+    <div class="bucket"></div>
 </body>
 </html>
