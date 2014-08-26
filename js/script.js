@@ -37,7 +37,7 @@ $(document).ready(function(e){
         });
 
 
-        // ugly!
+        // @TODO - refactor randomization
         function doMagic(){
             var oldImgRand = Math.floor((Math.random()* $('.photoItem').length ));
             var newImgRand = Math.floor((Math.random()* $('.bucket img').length ));
