@@ -8,6 +8,7 @@ h2 {
 	width: 1000px;
 	background-color: white;
 	margin: 0px auto;
+	border-radius: 3px;
 }
 .small_images {
 	width: 200px;
@@ -42,4 +43,5 @@ h2 {
 	position: absolute;
 	right: 0;
 	top: 0;
+	z-index: 5;
 }
