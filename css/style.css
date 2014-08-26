@@ -1,19 +1,20 @@
 body {
 	background-color: #333;
 }
-h2 {
-	color: #fff;
-}
+
 #container {
 	width: 1000px;
-	background-color: white;
-	margin: 0px auto;
+	background-color: black;
+	margin: 100px auto;
 	border-radius: 3px;
+	overflow: hidden;
 }
+
 .small_images {
 	width: 200px;
 	height: 200px;
 }
+
 .large_images {
 	width: 400px;
 	height: 400px;
@@ -33,6 +34,10 @@ h2 {
 
 .inBucket {
 	display: none;
+}
+
+.photoItem {
+	margin: 0;
 }
 
 .photo-item-border {
