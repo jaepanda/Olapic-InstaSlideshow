@@ -3,7 +3,9 @@ body {
 }
 
 #container {
+	position: relative;
 	width: 1000px;
+	height: 600px;
 	background-color: black;
 	margin: 100px auto;
 	border-radius: 3px;
@@ -51,4 +53,52 @@ body {
 	right: 0;
 	top: 0;
 	z-index: 5;
+}
+
+.photoItem.slot_1 {
+	position: absolute; 
+	left: 0px; 
+	top: 0px;
+}
+
+.photoItem.slot_2 {
+	position: absolute; 
+	left: 200px; 
+	top: 0px;
+}
+
+.photoItem.slot_3 {
+	position: absolute; 
+	left: 400px; 
+	top: 800px;
+}
+
+.photoItem.slot_4 {
+	position: absolute; 
+	left: 0px; 
+	top: 200px;
+}
+
+.photoItem.slot_5 {
+	position: absolute; 
+	left: 800px; 
+	top: 200px;
+}
+
+.photoItem.slot_6 {
+	position: absolute; 
+	left: 400px; 
+	top: 200px;
+}
+
+.photoItem.slot_7 {
+	position: absolute; 
+	left: 600px; 
+	top: 400px;
+}
+
+.photoItem.slot_8 {
+	position: absolute; 
+	left: 800px; 
+	top: 400px;
 }
