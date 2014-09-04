@@ -2,7 +2,13 @@ $(document).ready(function(e){
 
     // init vars 
     var imgs = [];
-    var url = 'http://z1photorankapi-a.akamaihd.net/customers/216710/media/recent?auth_token=1f6da15fd360ed792faa8cc5c5c3e324f7e2cea031c1c9f020becaf8ccbe3e78&version=v2.2&count=50';
+    var olapicKeys = JSON.parse('{"customerkeys":[{"name":"Piperlime","key":"1f6da15fd360ed792faa8cc5c5c3e324f7e2cea031c1c9f020becaf8ccbe3e78","customerID":"216710"},{"name":"Coachfromabove","key":"0416f4fb8dd48d79ce229eade4fdc66bdef7e8ce6b7b76719a38608f99c4fbb4","customerID":"215841"},{"name":"Westelm","key":"11ff75db4075b453ac4a21146a210e347479b26b67b1a396d9e29705150daa0d","customerID":"215934"},{"name":"Giggle","key":"538266d11aa4c6ebcac965c8f780bd613259c345698af1cd06ee4251449b4150","customerID":"216289"},{"name":"Aerie","key":"50f9310f38e9d3c0098de527a33b61d80ab0f1cdfc7619dafadca6e3be81a3f8","customerID":"216260"}]}');
+    var rand = Math.floor(Math.random()*olapicKeys.customerkeys.length);
+    var olapicKey = olapicKeys.customerkeys[rand].key;
+    var olapicId = olapicKeys.customerkeys[rand].customerID;
+    var url = 'http://z1photorankapi-a.akamaihd.net/customers/'+olapicId+'/media/recent?auth_token='+olapicKey+'&version=v2.2&count=50';
+
+    $('#client-name').text(olapicKeys.customerkeys[rand].name);
 
     // start ajax
     $.get( url, function( data ) {
@@ -60,6 +66,7 @@ $(document).ready(function(e){
         }, 3800);
 
         window.setInterval(function(){
+
             refreshContent(url);
         }, 60000);
 

@@ -5,7 +5,7 @@ body {
 #container {
 	width: 1000px;
 	background-color: black;
-	margin: 100px auto;
+	margin: 40px auto;
 	border-radius: 3px;
 	overflow: hidden;
 	-webkit-box-shadow: 0 0 20px 5px rgba(0,0,0,.5);
@@ -51,4 +51,11 @@ body {
 	right: 0;
 	top: 0;
 	z-index: 5;
+}
+
+h2#client-name {
+	font-family: Arial;
+	color: #fff;
+	text-align: center;
+	font-size: 42px;
 }
